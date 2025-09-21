@@ -17,6 +17,5 @@ The following configuration is implemented for the droplet:
 B. Initial Server Hardening:
 
 Connect to the droplet as root user for initial setup:
-'''bash
-ssh root@droplet_ip
-'''
+<pre> ```bash ssh root@droplet_ip ``` </pre>
+

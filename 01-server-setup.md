@@ -128,5 +128,6 @@ sudo mysql_secure_installation
 - Monitor firewall rules and adjust as needed
 - Use strong passwords for database and user accounts
 
-**Next Steps:** Proceed with Keycloak installation and configuration as documented in [02-keycloak-setup.md](02-keycloak-setup.md).
+**Next Steps:** Proceed with Keycloak installation and configuration as documented in [02-keycloak-install.md](02-keycloak-install.md).
+
 

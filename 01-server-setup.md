@@ -20,6 +20,22 @@ Connect to the droplet as root user for initial setup:
 ```
 ssh root@droplet_ip 
 ```
+Create a new administrative user with sudo priviledges:
+'''
+#Create the user and set a strong password
+adduser your_username
+passwrd your_username
+
+#Add the user to the 'wheel' group to grant sudo access
+usermod -aG wheel your_username
+'''
+Copy SSH key to the new user for secure access:
+'''
+#Copy SSH key for passwordless login
+rsync --archive --chown=your_username:your_username ~/.ssh /home/your_username
+'''
+Enchance security by disabling root SSH login. Modify '''/etc/ssh/sshd_config''' changing '''PermitRootLogin yes''' to '''PermitRootLogin no''':
+
 
 
 

@@ -12,7 +12,7 @@ sudo dnf install java-21-openjdk-devel -y
 
 # Verify Java installation
 java -version
-
+```
 # Keycloak Installation & Configuration
 
 This document covers the complete installation and configuration of Keycloak on Rocky Linux 10 and securing using MariaDB and Apache with SSL.
@@ -33,3 +33,4 @@ sudo dnf install java-21-openjdk-devel -y
 # Verify Java installation
 java -version
 ```
+

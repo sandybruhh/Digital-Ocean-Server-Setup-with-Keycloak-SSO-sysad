@@ -26,7 +26,7 @@ EXIT;
 
 ## 2. Drupal Installation
 
-* Install Drupal and configure the server environment to run the application.
++ Install Drupal and configure the server environment to run the application.
 
 Navigate to the /var/www/ directory and use Composer to install Drupal's recommended project structure.
 
@@ -37,13 +37,13 @@ sudo composer create-project drupal/recommended-project drupal
 sudo chown -R apache:apache /var/www/drupal
 sudo chmod -R 755 /var/www/drupal/web
 ```
-Create the necessary directories and files for drupal to store its data and configuration.
++ Create the necessary directories and files for drupal to store its data and configuration.
 ```bash
 sudo mkdir /var/www/drupal/web/sites/default/files
 sudo cp /var/www/drupal/web/sites/default/default.settings.php /var/www/drupal/web/sites/default/settings.php
 ```
 
-Edit the settings.php file at /var/www/drupal/web/sites/default/settings.php. Add your domain to the trusted_host_patterns array. This is a security measure to prevent HTTP Host header attacks.
++ Edit the settings.php file at /var/www/drupal/web/sites/default/settings.php. Add your domain to the trusted_host_patterns array. This is a security measure to prevent HTTP Host header attacks.
 
 ```php
 // ...existing code...
@@ -53,7 +53,7 @@ $settings['trusted_host_patterns'] = [
 // ...existing code...
 ```
 
-Replace drupal.swaruph.tech with your actual domain.
++ Replace drupal.swaruph.tech with your actual domain.
 
 Configure SELinux to allow Apache to write to the Drupal directories. This is crucial for the installation and subsequent operations.
 
@@ -64,7 +64,7 @@ sudo semanage fcontext -a -t httpd_sys_rw_content_t '/var/www/drupal/web/sites/d
 sudo restorecon -Rv /var/www/drupal/
 ```
 
-Create an Apache virtual host configuration file for your Drupal site at /etc/httpd/conf.d/drupal.conf.
++ Create an Apache virtual host configuration file for your Drupal site at /etc/httpd/conf.d/drupal.conf.
 
 ```apache
 <VirtualHost *:80>
@@ -78,8 +78,7 @@ Create an Apache virtual host configuration file for your Drupal site at /etc/ht
     CustomLog /var/log/httpd/drupal_access.log combined
 </VirtualHost>
 ```
-
-Replace your_drupal_domain with your domain name.
++ Replace your_drupal_domain with your domain name.
 
 Restart the Apache web server to apply the changes.
 
@@ -87,7 +86,7 @@ Restart the Apache web server to apply the changes.
 sudo systemctl restart httpd
 ```
 
-Complete the Drupal web installation by navigating to your domain in a web browser. Follow the on-screen prompts, providing the database credentials you configured in the first step.
++ Complete the Drupal web installation by navigating to your domain in a web browser. Follow the on-screen prompts, providing the database credentials you configured in the first step.
 
 Secure your site with SSL using Certbot. This will automatically set up HTTPS.
 
@@ -148,6 +147,7 @@ Enter the following details:
 - On the Drupal miniOrange OAuth Client Configuration page, click Perform Test Configuration.
 - A new window will open, prompting you to log in to Keycloak.
 - Upon successful login, you'll
+
 
 
 

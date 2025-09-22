@@ -1,6 +1,14 @@
 # Drupal 11 Setup and Keycloak SSO Integration
+## Description
+This guide provides a comprehensive walkthrough to install Drupal 11, configure its database, and integrate it with Keycloak for Single Sign-On (SSO) using the miniOrange OAuth Client module. It ensures secure user authentication, smooth SSO workflow, and a production-ready web server environment with SSL support.
 
-This guide covers the installation of Drupal 11 and its integration with Keycloak for Single Sign-On (SSO) using the miniOrange OAuth Client module.
+## Pre-requisites
+- A Rocky Linux 10 or compatible server with root access.
+- Apache, PHP 8.3+, and MariaDB installed.
+- Composer installed for Drupal dependency management.
+- A Keycloak server instance accessible from the Drupal server.
+- Domain name pointing to the server for SSL configuration.
+- Basic familiarity with Linux commands, Apache, and database administration.
 
 ## 1. Drupal Database Configuration
 
@@ -147,6 +155,7 @@ Enter the following details:
 - On the Drupal miniOrange OAuth Client Configuration page, click Perform Test Configuration.
 - A new window will open, prompting you to log in to Keycloak.
 - Upon successful login, you'll
+
 
 
 

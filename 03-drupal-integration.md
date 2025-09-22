@@ -110,43 +110,44 @@ sudo composer require 'drupal/miniorange_oauth_client'
 
 ### B. Enable the Drupal Module
 
--Log into your Drupal admin dashboard.
--Go to the Extend menu.
--Search for miniOrange OAuth Client and enable the module.
+- Log into your Drupal admin dashboard.
+- Go to the Extend menu.
+- Search for miniOrange OAuth Client and enable the module.
 
 ### C. Configure Drupal as an OAuth Client
 
--Navigate to Configuration > People > miniOrange OAuth Client Configuration.
--Under the Client Configuration tab, click + Add New.
--Select Keycloak as the application and set a custom name, such as "Keycloak."
--Copy the provided Callback/Redirect URL; you'll need this for Keycloak setup.
+- Navigate to Configuration > People > miniOrange OAuth Client Configuration.
+- Under the Client Configuration tab, click + Add New.
+- Select Keycloak as the application and set a custom name, such as "Keycloak."
+- Copy the provided Callback/Redirect URL; you'll need this for Keycloak setup.
 
 ### D. Configure Keycloak
 
--Access your Keycloak admin console.
--Switch to your desired realm (e.g., sso-apps).
--Go to Clients and click Create client.
--Set the Client type to OpenID Connect and the Client ID to drupal.
--On the Capability config screen, turn on Client Authentication.
--Under Login Settings, paste the Callback/Redirect URL you copied from Drupal into the Valid redirect URIs field.
--Save the client, then go to the Credentials tab and copy the generated Client Secret.
+- Access your Keycloak admin console.
+- Switch to your desired realm (e.g., sso-apps).
+- Go to Clients and click Create client.
+- Set the Client type to OpenID Connect and the Client ID to drupal.
+- On the Capability config screen, turn on Client Authentication.
+- Under Login Settings, paste the Callback/Redirect URL you copied from Drupal into the Valid redirect URIs field.
+- Save the client, then go to the Credentials tab and copy the generated Client Secret.
 
 ### E. Integrate Drupal with Keycloak
 
--Return to the miniOrange OAuth Client Configuration page in Drupal.
+- Return to the miniOrange OAuth Client Configuration page in Drupal.
 Enter the following details:
--Client ID: ```drupal```
--Client Secret: The secret you copied from Keycloak.
--Authorization Endpoint: ```{your_keycloak_domain}/realms/sso-apps/protocol/openid-connect/auth```
--Token Endpoint: ```{your_keycloak_domain}/realms/sso-apps/protocol/openid-connect/token```
--User Info Endpoint: ```{your_keycloak_domain}/realms/sso-apps/protocol/openid-connect/userinfo```
--Make sure to replace ```{your_keycloak_domain} with your actual Keycloak domain.```
--Click Save Configuration.
+- Client ID: ```drupal```
+- Client Secret: The secret you copied from Keycloak.
+- Authorization Endpoint: ```{your_keycloak_domain}/realms/sso-apps/protocol/openid-connect/auth```
+- Token Endpoint: ```{your_keycloak_domain}/realms/sso-apps/protocol/openid-connect/token```
+- User Info Endpoint: ```{your_keycloak_domain}/realms/sso-apps/protocol/openid-connect/userinfo```
+- Make sure to replace ```{your_keycloak_domain} with your actual Keycloak domain.```
+- Click Save Configuration.
 
 ### F. Test the Integration
 
-On the Drupal miniOrange OAuth Client Configuration page, click Perform Test Configuration.
-A new window will open, prompting you to log in to Keycloak.
-Upon successful login, you'll
+- On the Drupal miniOrange OAuth Client Configuration page, click Perform Test Configuration.
+- A new window will open, prompting you to log in to Keycloak.
+- Upon successful login, you'll
+
 
 

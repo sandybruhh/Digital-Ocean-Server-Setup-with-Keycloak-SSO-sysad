@@ -20,7 +20,7 @@ java -version
 ```
 # Keycloak Setup Guide
 
-## 2. Download & Configure Keycloak
+## 1. Download & Configure Keycloak
 
 ```bash
 cd /opt  
@@ -37,7 +37,7 @@ sudo chown -R keycloak:keycloak /opt/keycloak
 sudo chcon -R -u system_u -t usr_t /opt/keycloak
 ```
 
-## 3. Bootstrap Admin User
+## 2. Bootstrap Admin User
 
 ```bash
 # Build Keycloak
@@ -47,7 +47,7 @@ export ADMIN_PASS=sandeep@123
 sudo --preserve-env=ADMIN_PASS ./bin/kc.sh bootstrap-admin user --username sandeep_admin --password:env ADMIN_PASS
 ```
 
-## 4. MariaDB Setup
+## 3. MariaDB Setup
 
 ```bash
 sudo mysql -u root -p
@@ -70,7 +70,7 @@ sudo chown keycloak:keycloak mariadb-java-client-3.5.5.jar
 sudo chcon -u system_u -t usr_t /opt/keycloak/providers/mariadb-java-client-3.5.5.jar
 ```
 
-## 5. Keycloak Config File
+## 4. Keycloak Config File
 
 Edit `/opt/keycloak/conf/keycloak.conf`:
 
@@ -92,7 +92,7 @@ https-enabled=false
 http-port=8080
 ```
 
-## 6. Systemd Service
+## 5. Systemd Service
 
 File: `/etc/systemd/system/keycloak.service`
 
@@ -123,7 +123,7 @@ sudo systemctl status keycloak
 
 📸 Screenshot: `screenshots/service-running.png`
 
-## 7. Apache Reverse Proxy + SSL
+## 6. Apache Reverse Proxy + SSL
 
 ```bash
 sudo dnf install -y mod_ssl certbot python3-certbot-apache
@@ -144,7 +144,7 @@ SSL certificate:
 sudo certbot --apache -d sandeep-keycloak.local
 ```
 
-## 8. Access Keycloak
+## 7. Access Keycloak
 
 👉 **URL:** [https://sandeep-keycloak.local](https://sandeep-keycloak.local)  
 
@@ -158,11 +158,6 @@ Username: sandeep_admin
 Password: sandeep@123
 ```
 
-📸 **Screenshots:**  
-- `screenshots/keycloak-login.png`  
-- `screenshots/admin-console.png`  
-
----
 
 ### Step 2: Create Permanent Admin User
 The bootstrap admin is only meant for the initial setup. We will now create a permanent admin user.
@@ -176,9 +171,8 @@ The bootstrap admin is only meant for the initial setup. We will now create a pe
 7. Log back in with the new permanent admin credentials.  
 8. Once confirmed, **delete the bootstrap user** (`sandeep_admin`) for security.
 
----
 
-## 9. Create Realm
+## 8. Create Realm
 
 ### Step 1: Create a New Realm
 1. In the Admin Console, click the **realm dropdown** (top-left).  
@@ -190,7 +184,6 @@ The bootstrap admin is only meant for the initial setup. We will now create a pe
 📸 **Screenshot:**  
 - `screenshots/realm-created.png`  
 
----
 
 ### Step 2: Create a Test User
 1. Go to **Users → Add User**.  
@@ -204,9 +197,9 @@ The bootstrap admin is only meant for the initial setup. We will now create a pe
    - Go to [https://sandeep-keycloak.local/realms/sandeep-realm/account](https://sandeep-keycloak.local/realms/sandeep-realm/account)  
    - Log in with the test user credentials.  
 
----
 
 ✅ At this point, you have:  
 - A **permanent admin account**.  
 - A **new realm (`sandeep-realm`)**.  
 - A **test user (`sandeep-user`)** to validate the setup.  
+

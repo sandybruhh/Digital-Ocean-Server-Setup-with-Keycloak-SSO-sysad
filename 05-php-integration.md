@@ -1,4 +1,26 @@
+# PHP Application Integration with Keycloak SSO
+
+## Overview
+
+This guide demonstrates how to integrate a generic PHP application with Keycloak for Single Sign-On (SSO) authentication. The implementation uses OpenID Connect protocol to authenticate users through Keycloak and provides secure HTTPS access with SSL certificates.
+
+## Prerequisites
+
+Before proceeding with this integration, ensure you have:
+
+- ✅ Keycloak server running and accessible
+- ✅ Apache web server configured and running
+- ✅ PHP 8.3+ installed with required extensions
+- ✅ Composer package manager installed
+- ✅ SSL certificates configured (Let's Encrypt recommended)
+- ✅ Keycloak realm `sso-apps` created and configured
+- ✅ Basic understanding of PHP and session management
+
 ## Setup PHP Directory
+**Steps**:
+- Create dedicated directory `/var/www/php_app` for the PHP application
+- Set Apache user and group ownership for proper web server access
+- Configure read and execute permissions for all users, write access for owner
 
 ```bash
 sudo mkdir /var/www/php_app
@@ -7,6 +29,11 @@ sudo chmod -R 755 /var/www/php_app
 ```
 
 ## Create Virtual Host for PHP App
+**Steps**:
+- Define server name for your PHP application domain
+- Set document root to the PHP application directory
+- Allow .htaccess file overrides for URL rewriting and redirects
+- Grant access permissions to all users for the application directory
 
 Create `/etc/httpd/conf.d/php_app.conf`:
 
@@ -22,6 +49,13 @@ Create `/etc/httpd/conf.d/php_app.conf`:
 ```
 
 ## SSL Configuration (HTTPS)
+**Steps**:
+- Configure SSL virtual host listening on port 443
+- Set same server name and document root as HTTP configuration
+- Specify SSL certificate file path from Let's Encrypt
+- Define SSL private key file location
+- Include Let's Encrypt SSL security options and configurations
+- Restart Apache: `sudo systemctl restart httpd`
 
 Add SSL configuration to the same file:
 
@@ -59,3 +93,4 @@ sudo composer require jumbojett/openid-connect-php
 5. Turn Client Authentication: `on`
 6. Valid redirect urls: `https://your_php_app_domain/callback.php`
 7. Save and copy Client Secret from Credentials tab
+

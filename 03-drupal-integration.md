@@ -26,7 +26,7 @@ EXIT;
 
 ## 2. Drupal Installation
 
-Install Drupal and configure the server environment to run the application.
+* Install Drupal and configure the server environment to run the application.
 
 Navigate to the /var/www/ directory and use Composer to install Drupal's recommended project structure.
 
@@ -148,6 +148,7 @@ Enter the following details:
 - On the Drupal miniOrange OAuth Client Configuration page, click Perform Test Configuration.
 - A new window will open, prompting you to log in to Keycloak.
 - Upon successful login, you'll
+
 
 
 

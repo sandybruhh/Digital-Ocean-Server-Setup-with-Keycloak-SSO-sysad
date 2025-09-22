@@ -34,17 +34,10 @@ Navigate to the /var/www/ directory and use Composer to install Drupal's recomme
 cd /var/www/
 sudo dnf install composer -y
 sudo composer create-project drupal/recommended-project drupal
-```
-
-Adjust file permissions and ownership to ensure the web server (apache) can access the files.
-
-```bash
 sudo chown -R apache:apache /var/www/drupal
 sudo chmod -R 755 /var/www/drupal/web
+Create the necessary directories and files for drupal to store its data and configuration.
 ```
-
-Create the necessary directories and files for Drupal to store its data and configuration.
-
 ```bash
 sudo mkdir /var/www/drupal/web/sites/default/files
 sudo cp /var/www/drupal/web/sites/default/default.settings.php /var/www/drupal/web/sites/default/settings.php
@@ -176,3 +169,4 @@ On the Drupal miniOrange OAuth Client Configuration page, click Perform Test Con
 A new window will open, prompting you to log in to Keycloak.
 
 Upon successful login, you'll
+

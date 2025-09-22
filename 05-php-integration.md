@@ -8,13 +8,13 @@ This guide demonstrates how to integrate a generic PHP application with Keycloak
 
 Before proceeding with this integration, ensure you have:
 
-- ✅ Keycloak server running and accessible
-- ✅ Apache web server configured and running
-- ✅ PHP 8.3+ installed with required extensions
-- ✅ Composer package manager installed
-- ✅ SSL certificates configured (Let's Encrypt recommended)
-- ✅ Keycloak realm `sso-apps` created and configured
-- ✅ Basic understanding of PHP and session management
+-  Keycloak server running and accessible
+-  Apache web server configured and running
+-  PHP 8.3+ installed with required extensions
+-  Composer package manager installed
+-  SSL certificates configured (Let's Encrypt recommended)
+-  Keycloak realm `sso-apps` created and configured
+-  Basic understanding of PHP and session management
 
 ## Setup PHP Directory
 **Steps**:
@@ -93,4 +93,5 @@ sudo composer require jumbojett/openid-connect-php
 5. Turn Client Authentication: `on`
 6. Valid redirect urls: `https://your_php_app_domain/callback.php`
 7. Save and copy Client Secret from Credentials tab
+
 
